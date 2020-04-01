@@ -1,0 +1,13 @@
+[Unit]
+Description=An encrypted proxy service program
+After=sshd.service
+
+[Service]
+ExecStart=/root/snell-server -c /root/snell-server.conf
+KillMode=process
+Restart=on-failure
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
+Alias=my-snell.service
